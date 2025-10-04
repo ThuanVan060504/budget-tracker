@@ -1,0 +1,256 @@
+/* 🌈 Font & Background */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite, fadeIn 0.8s ease-in-out;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌟 Container chính */
+.app-container {
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 🧾 Tiêu đề */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: #1e293b;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 💰 Tổng thu - chi - dư */
+.summary {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 18px 20px;
+  border-radius: 18px;
+  width: 200px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+.card.income p { color: #27ae60; font-weight: 600; }
+.card.expense p { color: #e74c3c; font-weight: 600; }
+.card.balance p { color: #2980b9; font-weight: 600; }
+
+/* 🧩 Bố cục chính */
+.content-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  min-width: 360px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 🧾 Form thêm giao dịch */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+input:focus, select:focus {
+  border-color: #2ecc71;
+  box-shadow: 0 0 6px rgba(46, 204, 113, 0.4);
+}
+
+button {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+button:hover {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  transform: scale(1.04);
+}
+
+/* 🪙 Danh sách giao dịch */
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  max-height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.transaction-list li {
+  background: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.transaction-list li:hover {
+  transform: translateY(-2px);
+}
+
+.income-item { border-left: 6px solid #2ecc71; background: #e9fbe9; }
+.expense-item { border-left: 6px solid #e74c3c; background: #ffe8e8; }
+
+.actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.2s;
+}
+.actions button:hover { transform: scale(1.2); }
+
+/* 📊 Khu vực biểu đồ (gộp chung) */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* 📊 Hai khung biểu đồ riêng biệt */
+.chart-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.chart-box {
+  flex: 1;
+  min-width: 340px;
+  max-width: 520px;
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #1e293b);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 6px 16px var(--shadow-color, rgba(0, 0, 0, 0.12));
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chart-box h4 {
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: inherit;
+  text-align: center;
+}
+
+.chart-container {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* ⚡ Quan trọng: giúp hiện tooltip và trục đầy đủ */
+}
+
+/* 🌗 Dark/Light Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(120deg, #1f1f1f, #2d2d2d);
+    color: #f5f5f5;
+  }
+
+  .left-panel,
+  .right-panel,
+  .chart-box {
+    background: #2a2a2a;
+    color: #f1f1f1;
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.08);
+  }
+
+  .card {
+    background: rgba(40, 40, 40, 0.9);
+    color: #f1f1f1;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+  }
+
+  h1, h3, h4 { color: #a8dadc; }
+
+  button {
+    background: linear-gradient(135deg, #27ae60, #1e8449);
+  }
+
+  .income-item {
+    background: rgba(46, 204, 113, 0.1);
+    border-left: 6px solid #2ecc71;
+  }
+
+  .expense-item {
+    background: rgba(231, 76, 60, 0.1);
+    border-left: 6px solid #e74c3c;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
